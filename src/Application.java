@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Application extends JFrame {
     public Application(){
@@ -7,14 +8,18 @@ public class Application extends JFrame {
 
     private void initUI(){
         add(new Board());
-        setSize(250, 200);
-        setTitle("Application");
+        setResizable(false);
+        pack();
+        setTitle("Animation");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {
-        Application app = new Application();
-        app.setVisible(true);
+        EventQueue.invokeLater(() -> {
+            Application app = new Application();
+            app.setVisible(true);
+        });
+
     }
 }
